@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fail-sfx kart game-opengameart.mp3-40741684ae9f1c4ec2fcc852e9f2ffe2.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/fail-sfx kart game-opengameart.mp3"
+dest_files=[ "res://.import/fail-sfx kart game-opengameart.mp3-40741684ae9f1c4ec2fcc852e9f2ffe2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

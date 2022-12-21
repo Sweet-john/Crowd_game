@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/footsteps-pacdv.wav-aa29d88a1fd063f11f45d6c5735e8626.sample"
+path="res://.import/footsteps-pacdv.wav-0c4889b256e0cd550438379d321fbbf0.sample"
 
 [deps]
 
-source_file="res://TempResource/SFX/footsteps-pacdv.wav"
-dest_files=[ "res://.import/footsteps-pacdv.wav-aa29d88a1fd063f11f45d6c5735e8626.sample" ]
+source_file="res://Audio/SFX/footsteps-pacdv.wav"
+dest_files=[ "res://.import/footsteps-pacdv.wav-0c4889b256e0cd550438379d321fbbf0.sample" ]
 
 [params]
 

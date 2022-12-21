@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/gunshot-01-soundgator.wav-4231c9798369683a62a2f1e5e9501744.sample"
+path="res://.import/goal-bell-opengameart.wav-dd2f28f6cc0f93b7344e62f655543f96.sample"
 
 [deps]
 
-source_file="res://TempResource/SFX/gunshot-01-soundgator.wav"
-dest_files=[ "res://.import/gunshot-01-soundgator.wav-4231c9798369683a62a2f1e5e9501744.sample" ]
+source_file="res://Audio/SFX/goal-bell-opengameart.wav"
+dest_files=[ "res://.import/goal-bell-opengameart.wav-dd2f28f6cc0f93b7344e62f655543f96.sample" ]
 
 [params]
 
