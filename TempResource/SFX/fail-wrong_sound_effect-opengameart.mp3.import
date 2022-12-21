@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fail-wrong_sound_effect-opengameart.mp3-ef8a17e108d8191e4e45e00c5d924e83.mp3str"
+
+[deps]
+
+source_file="res://TempResource/SFX/fail-wrong_sound_effect-opengameart.mp3"
+dest_files=[ "res://.import/fail-wrong_sound_effect-opengameart.mp3-ef8a17e108d8191e4e45e00c5d924e83.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

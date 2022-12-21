@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BGM-lone-wolf-short-Playonloop.wav-9fac735a90735e8d87a35d13161a2dce.sample"
+
+[deps]
+
+source_file="res://TempResource/SFX/BGM-lone-wolf-short-Playonloop.wav"
+dest_files=[ "res://.import/BGM-lone-wolf-short-Playonloop.wav-9fac735a90735e8d87a35d13161a2dce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
