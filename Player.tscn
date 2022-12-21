@@ -15,10 +15,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ 1 ]
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -45,7 +45,7 @@ script = ExtResource( 1 )
 scale = Vector2( 1.32813, 1.32813 )
 texture = ExtResource( 2 )
 hframes = 60
-frame = 1
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )
