@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player Ani.png-5c13e6dc90ecc1e52b9ed7696d741c7d.stex"
+path="res://.import/Player.png-3b381e068d1d74cc2895fb9be41402b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player Ani.png"
-dest_files=[ "res://.import/Player Ani.png-5c13e6dc90ecc1e52b9ed7696d741c7d.stex" ]
+source_file="res://Player.png"
+dest_files=[ "res://.import/Player.png-3b381e068d1d74cc2895fb9be41402b0.stex" ]
 
 [params]
 
