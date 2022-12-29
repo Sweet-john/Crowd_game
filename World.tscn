@@ -1,21 +1,189 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://bridge.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PNG/Tiles/tile_348.png" type="Texture" id=4]
+[ext_resource path="res://tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://PNG/Tiles/tile_346.png" type="Texture" id=6]
+[ext_resource path="res://PNG/Tiles/tile_368.png" type="Texture" id=7]
+[ext_resource path="res://PNG/Tiles/tile_134.png" type="Texture" id=8]
+[ext_resource path="res://PNG/Tiles/tile_206.png" type="Texture" id=9]
+[ext_resource path="res://PNG/Tiles/tile_198.png" type="Texture" id=10]
+[ext_resource path="res://Flower.tscn" type="PackedScene" id=11]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 31.3209
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 21.095
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 33.0151
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 16.5529
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 17.0294
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 61.5, 31 )
 
 [node name="World" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Background" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+format = 1
+tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 12, 0, 9, 13, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 65536, 0, 0, 65537, 102, 0, 65538, 102, 0, 65539, 102, 0, 65540, 0, 0, 65541, 104, 0, 65542, 0, 0, 65543, 0, 0, 65544, 12, 0, 65545, 13, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 131072, 14, 0, 131073, 14, 0, 131074, 14, 0, 131075, 14, 0, 131076, 14, 0, 131077, 14, 0, 131078, 14, 0, 131079, 14, 0, 131080, 49, 0, 131081, 13, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 104, 0, 131086, 104, 0, 131087, 0, 0, 196608, 47, 0, 196609, 47, 0, 196610, 47, 0, 196611, 15, 0, 196612, 47, 0, 196613, 47, 0, 196614, 47, 0, 196615, 47, 0, 196616, 16, 0, 196617, 48, 0, 196618, 14, 0, 196619, 14, 0, 196620, 14, 0, 196621, 14, 0, 196622, 14, 0, 196623, 14, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 52, 0, 262148, 0, 0, 262149, 102, 0, 262150, 0, 0, 262151, 0, 0, 262152, 12, 0, 262153, 15, 0, 262154, 47, 0, 262155, 47, 0, 262156, 47, 0, 262157, 47, 0, 262158, 47, 0, 262159, 47, 0, 327680, 0, 0, 327681, 104, 0, 327682, 0, 0, 327683, 52, 0, 327684, 0, 0, 327685, 104, 0, 327686, 104, 0, 327687, 0, 0, 327688, 12, 0, 327689, 13, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 103, 0, 393216, 14, 0, 393217, 14, 0, 393218, 14, 0, 393219, 48, 0, 393220, 14, 0, 393221, 14, 0, 393222, 14, 0, 393223, 14, 0, 393224, 49, 0, 393225, 13, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 103, 0, 458753, 31, 0, 458754, 31, 0, 458755, 31, 0, 458756, 31, 0, 458757, 31, 0, 458758, 15, 0, 458759, 47, 0, 458760, 47, 0, 458761, 51, 0, 458762, 103, 0, 458763, 103, 0, 458764, 103, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 524288, 47, 0, 524289, 47, 0, 524290, 47, 0, 524291, 47, 0, 524292, 47, 0, 524293, 47, 0, 524294, 51, 0, 524295, 0, 0, 524296, 0, 0, 524297, 104, 0, 524298, 0, 0, 524299, 0, 0, 524300, 103, 0, 524301, 103, 0, 524302, 0, 0, 524303, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 103, 0, 589827, 103, 0, 589828, 103, 0, 589829, 103, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0 )
+
+[node name="Layer1" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+format = 1
+tile_data = PoolIntArray( 0, 89, 0, 1, 89, 0, 2, 89, 0, 3, 89, 0, 4, 89, 0, 5, 89, 0, 6, 89, 0, 7, 89, 0, 10, 89, 0, 11, 89, 0, 12, 89, 0, 13, 89, 0, 14, 89, 0, 15, 89, 0, 65549, 67, 0, 196611, 101, 0, 327686, 67, 0, 393219, 91, 0, 458764, 67, 0 )
+
+[node name="Bri" parent="Layer1" instance=ExtResource( 3 )]
+position = Vector2( 344, 122 )
+
+[node name="Bridge" parent="Layer1" instance=ExtResource( 3 )]
+position = Vector2( 133, 63 )
+
+[node name="Bridge2" parent="Layer1" instance=ExtResource( 3 )]
+position = Vector2( 774, 63 )
+
+[node name="Bridge3" parent="Layer1" instance=ExtResource( 3 )]
+position = Vector2( 775, 186 )
+
+[node name="Bridge4" parent="Layer1" instance=ExtResource( 3 )]
+position = Vector2( 884, 328 )
+
+[node name="Bridge5" parent="Layer1" instance=ExtResource( 3 )]
+position = Vector2( 182, 323 )
+rotation = 1.5708
+
+[node name="Bridge6" parent="Layer1" instance=ExtResource( 3 )]
+position = Vector2( 266, 323 )
+rotation = 1.5708
+
+[node name="Bridge7" parent="Layer1" instance=ExtResource( 3 )]
+position = Vector2( 550, 519 )
+
+[node name="Layer2" type="TileMap" parent="."]
+visible = false
+tile_set = ExtResource( 5 )
+format = 1
+
+[node name="Player layer" type="Node2D" parent="."]
+
+[node name="Player" parent="Player layer" instance=ExtResource( 2 )]
 position = Vector2( 216, 200 )
 
-[node name="Tree" parent="." instance=ExtResource( 1 )]
-position = Vector2( 32, 32 )
+[node name="Tree" parent="Player layer" instance=ExtResource( 1 )]
+position = Vector2( 29, 25 )
 
-[node name="Tree2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 224, 40 )
+[node name="Flower3" parent="Player layer" instance=ExtResource( 11 )]
 
-[node name="Tree3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 160, 352 )
+[node name="Target1" type="StaticBody2D" parent="Player layer"]
 
-[node name="Tree4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 752, 224 )
+[node name="Target1" type="Sprite" parent="Player layer/Target1"]
+position = Vector2( 989, 566 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player layer/Target1"]
+position = Vector2( 989, 566 )
+shape = SubResource( 1 )
+
+[node name="Target2" type="StaticBody2D" parent="Player layer"]
+
+[node name="Target2" type="Sprite" parent="Player layer/Target2"]
+position = Vector2( 990, 97 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player layer/Target2"]
+position = Vector2( 990, 97 )
+shape = SubResource( 2 )
+
+[node name="Target3" type="StaticBody2D" parent="Player layer"]
+
+[node name="Target3" type="Sprite" parent="Player layer/Target3"]
+position = Vector2( 34, 484 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player layer/Target3"]
+position = Vector2( 34, 484 )
+shape = SubResource( 3 )
+
+[node name="Flower1" type="StaticBody2D" parent="Player layer"]
+
+[node name="Flower1" type="Sprite" parent="Player layer/Flower1"]
+position = Vector2( 477, 94 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player layer/Flower1"]
+position = Vector2( 479, 94 )
+shape = SubResource( 4 )
+
+[node name="Flower2" type="StaticBody2D" parent="Player layer"]
+
+[node name="Flower2" type="Sprite" parent="Player layer/Flower2"]
+position = Vector2( 670, 346 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player layer/Flower2"]
+position = Vector2( 672, 345 )
+shape = SubResource( 5 )
+
+[node name="Grass" type="StaticBody2D" parent="Player layer"]
+
+[node name="GrassL" type="Sprite" parent="Player layer/Grass"]
+position = Vector2( 758, 437 )
+texture = ExtResource( 6 )
+
+[node name="GrassR" type="Sprite" parent="Player layer/Grass"]
+position = Vector2( 820, 437 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player layer/Grass"]
+position = Vector2( 788.5, 438 )
+shape = SubResource( 6 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 521, 0, 522, 138, 370, 138, 370, 128, 513, 129, 512.474, 62.6781, 158, 62, 158, 48, 512.36, 48.3771, 512, 0 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 0, 128, 319, 129, 319, 138, 0, 136 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 0, 48, 106, 48, 106, 62, 0, 62 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 631, 0, 640, 0, 640, 48, 748, 48, 748, 63, 640, 63, 640, 192, 749, 193, 749, 202, 632, 201 )
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 801, 48, 1024, 48, 1024, 62, 801, 62 )
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 802, 192, 1024, 192, 1024, 200, 802, 200 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 0, 385, 193, 385, 192, 350, 198, 350, 200, 392, 0, 392 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 248, 248, 520, 248, 520, 392, 248, 392, 250, 350, 257, 350, 256, 384, 512, 384, 512, 256, 256, 256, 256, 297, 250, 297 )
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 0, 247, 200, 248, 198, 296, 192, 296, 192, 256, 0, 256 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 0, 568, 440, 568, 440, 503, 524, 503, 524, 512, 448, 512, 449, 576, 0, 576 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 576, 503, 633, 503, 632, 310, 858, 311, 858, 321, 640, 320, 641, 512, 576, 512 )
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 911, 312, 1024, 312, 1024, 321, 911, 321 )
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( -2, -12, 1037, -11, 1035, 618, -11, 614, -13, -1, 0, 2, 0, 602, 1025, 603, 1027, 2, -1, 1 )
