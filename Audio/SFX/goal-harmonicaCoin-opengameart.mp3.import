@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/goal-harmonicaCoin-opengameart.mp3-a836e7ab362f4861d02e30649664f261.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/goal-harmonicaCoin-opengameart.mp3"
+dest_files=[ "res://.import/goal-harmonicaCoin-opengameart.mp3-a836e7ab362f4861d02e30649664f261.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
