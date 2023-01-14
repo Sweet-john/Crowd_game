@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/redSheet.png-65b9ef874cb4c30f57c5f91fb4d98ecb.stex"
+path="res://.import/grey_tickWhite.png-6e45f4331f856cf2481472cb0fb6c398.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HUD/UIResource/uipack_fixed/Spritesheet/redSheet.png"
-dest_files=[ "res://.import/redSheet.png-65b9ef874cb4c30f57c5f91fb4d98ecb.stex" ]
+source_file="res://HUD/UIResource/uipack_fixed/Spritesheet/grey_tickWhite.png"
+dest_files=[ "res://.import/grey_tickWhite.png-6e45f4331f856cf2481472cb0fb6c398.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/yellowSheet.png-c871930d64f64b7575f60069211dc125.stex"
+path="res://.import/grey_crossGrey.png-ba63cbca090339f6d6ba25481cdd8589.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HUD/UIResource/uipack_fixed/Spritesheet/yellowSheet.png"
-dest_files=[ "res://.import/yellowSheet.png-c871930d64f64b7575f60069211dc125.stex" ]
+source_file="res://HUD/UIResource/uipack_fixed/Spritesheet/grey_crossGrey.png"
+dest_files=[ "res://.import/grey_crossGrey.png-ba63cbca090339f6d6ba25481cdd8589.stex" ]
 
 [params]
 

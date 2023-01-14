@@ -23,6 +23,8 @@ window/size/height=1080
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+theme/use_hidpi=true
+theme/custom="res://HUD/UIResource/UI_theme.tres"
 
 [importer_defaults]
 
