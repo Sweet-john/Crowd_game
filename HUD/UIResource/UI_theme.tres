@@ -89,13 +89,7 @@ margin_right = 4.0
 margin_top = 4.0
 margin_bottom = 4.0
 
-[sub_resource type="StyleBoxTexture" id=27]
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 49, 190, 45 )
-margin_left = 5.0
-margin_right = 5.0
-margin_top = 5.0
-margin_bottom = 5.0
+[sub_resource type="StyleBoxEmpty" id=33]
 
 [sub_resource type="StyleBoxTexture" id=10]
 texture = ExtResource( 2 )
@@ -282,7 +276,8 @@ HScrollBar/styles/grabber_pressed = SubResource( 14 )
 HSlider/icons/grabber = ExtResource( 13 )
 HSlider/icons/grabber_disabled = ExtResource( 17 )
 HSlider/icons/grabber_highlight = ExtResource( 13 )
-Label/styles/normal = SubResource( 27 )
+Label/colors/font_color = Color( 0, 0, 0, 0.745098 )
+Label/styles/normal = SubResource( 33 )
 LineEdit/colors/cursor_color = Color( 0, 0, 0, 1 )
 LineEdit/colors/font_color = Color( 0, 0, 0, 1 )
 LineEdit/colors/font_color_uneditable = Color( 0, 0, 0, 0.501961 )
