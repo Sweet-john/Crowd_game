@@ -36,10 +36,12 @@ func move_state(delta):
 		animation_tree.set("parameters/Run/blend_position", input_vector)
 		animation_tree.set("parameters/Attack/blend_position", input_vector)
 		animation_State.travel("Run")
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		velocity = input_vector * MAX_SPEED
+		#velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
 		animation_State.travel("Idle")
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		velocity = Vector2.ZERO
+		#velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	
 	velocity = move_and_slide(velocity)
 	
