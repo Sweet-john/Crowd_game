@@ -2,9 +2,12 @@ extends Node
 
 var NPCScene = preload("res://NPC/NonePlayerCharacter.tscn")
 var NPCInstance = NPCScene.instance()
-var npcCount = 0
+export onready var npcCount = 0 setget , getFunc
 var maxNpcNum = 1000
 var npcIncreasePerFrame = 100
+
+func getFunc():
+	return npcCount
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
