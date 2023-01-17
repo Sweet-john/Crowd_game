@@ -2,7 +2,7 @@ extends Node
 
 var NPCScene = preload("res://NPC/NonePlayerCharacter.tscn")
 var NPCInstance = NPCScene.instance()
-var maxNpcNum = 1000
+var maxNpcNum = 5000
 var npcIncreasePerFrame = 100
 export var npcCounter = 0
 
@@ -19,8 +19,8 @@ func _physics_process(delta):
 	if npcCounter < maxNpcNum:
 		for j in range(npcIncreasePerFrame):
 			var NPCInstance = NPCScene.instance()
-			NPCInstance.position.x = randi() % (3968 + 17664) - 3968
-			NPCInstance.position.y = randi() % (4544 + 10496) - 4544
+			NPCInstance.position.x = randi() % ((3968 + 17664) - 3968)
+			NPCInstance.position.y = randi() % ((4544 + 10496) - 4544)
 			add_child(NPCInstance)
 			npcCounter += 1
 	get_parent().get_node("Camera2D/HUD").agent_n = npcCounter
