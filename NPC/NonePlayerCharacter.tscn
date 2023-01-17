@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://NPC/EnemyGreen.png" type="Texture" id=1]
+[ext_resource path="res://NPC/NonePlayerCharacter.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=26]
 radius = 14.0
@@ -219,6 +220,7 @@ start_node = "Idle"
 
 [node name="NonePlayerCharacter" type="KinematicBody2D"]
 scale = Vector2( 1.8, 1.8 )
+script = ExtResource( 2 )
 
 [node name="Zombie" type="Sprite" parent="."]
 texture = ExtResource( 1 )
