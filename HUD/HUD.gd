@@ -3,7 +3,6 @@ extends CanvasLayer
 # preset
 onready var gaming_hud = $GamingHud
 onready var start_menu = $StartMenu
-onready var game_menu = $GameMenu
 onready var pause_menu = $PauseMenu
 onready var loading_screen = $LoadingScreen
 onready var agent_counter = $AgentCounter
