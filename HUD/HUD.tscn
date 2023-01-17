@@ -82,7 +82,7 @@ margin_left = -235.5
 margin_right = 235.5
 margin_bottom = 82.0
 custom_fonts/font = SubResource( 7 )
-text = "Our game named sth"
+text = "Purge"
 align = 1
 autowrap = true
 
