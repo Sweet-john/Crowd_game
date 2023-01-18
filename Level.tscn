@@ -25,5 +25,3 @@ collision_mask = 3
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="MainCharacter"]
 remote_path = NodePath("../../Camera2D")
-
-[connection signal="Loading" from="Camera2D/HUD" to="NPCNode" method="_on_HUD_Loading"]
