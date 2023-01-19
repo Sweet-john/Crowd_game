@@ -15,6 +15,7 @@ export(int) var loading_max = 0
 
 # signal settings
 signal on_loading_100
+signal load_npc
 
 # label format
 var scorelabel = " score: %06d"
@@ -27,6 +28,7 @@ func _ready():
 
 # Node signal
 func _on_StartButton_pressed():
+	emit_signal("load_npc")
 	state_load()
 
 func _on_PauseButton_pressed():

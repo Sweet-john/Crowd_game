@@ -17,7 +17,7 @@ func _ready():
 	animation_tree.active = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _process(delta):
 	match state:
 		MOVE:
 			move_state(delta)
