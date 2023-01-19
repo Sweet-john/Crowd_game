@@ -22,4 +22,5 @@ func _process(delta):
 	#print(position.distance_to(player_position))
 	if position.distance_to(player_position) < 100:
 		get_node("../../Camera2D/HUD").agent_n -= 1
+		get_node("../../Camera2D/HUD").score += 1
 		queue_free()
