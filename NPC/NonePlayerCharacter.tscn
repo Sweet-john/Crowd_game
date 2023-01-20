@@ -219,7 +219,7 @@ start_node = "Idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
 [node name="NonePlayerCharacter" type="KinematicBody2D"]
-scale = Vector2( 1.8, 1.8 )
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 
 [node name="Zombie" type="Sprite" parent="."]

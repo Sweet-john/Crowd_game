@@ -154,6 +154,9 @@ anchor_bottom = 1.0
 margin_top = -18.0
 margin_right = 40.0
 
+[node name="SafeCounter" type="Label" parent="AgentCounter"]
+margin_top = -18.0
+
 [connection signal="on_loading_100" from="." to="." method="_on_HUD_on_loading_100"]
 [connection signal="pressed" from="GamingHud/PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_StartButton_pressed"]

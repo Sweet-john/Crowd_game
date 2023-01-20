@@ -10,11 +10,18 @@ enum{
 	ATTACK
 }
 
+var tpp_pos : = PoolVector2Array()
+var tpa_pos : = PoolVector2Array()
+
 onready var animation_tree = $AnimationTree
 onready var animation_State = animation_tree.get("parameters/playback")
 
 func _ready():
 	animation_tree.active = true
+	for i in get_node("/root/Level/WorldMap/TP/tpp").get_children():
+		tpp_pos.push_back(i.position)
+	for i in get_node("/root/Level/WorldMap/TP/tpa").get_children():
+		tpa_pos.push_back(i.position)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,6 +30,11 @@ func _process(delta):
 			move_state(delta)
 		ATTACK:
 			attack_state(delta)
+
+func _physics_process(delta):
+	for i in range(tpa_pos.size()):
+		if position.distance_to(tpa_pos[i]) < 128:
+			position = tpp_pos[i - (randi()%(tpa_pos.size() - 1) + 1)]
 
 
 func move_state(delta):

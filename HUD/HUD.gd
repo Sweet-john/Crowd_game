@@ -10,6 +10,7 @@ onready var agent_counter = $AgentCounter
 # export elements
 export(int) var score = 0 setget score_set
 export(int) var agent_n = 0 setget agn_set
+export(int) var agent_safe_n = 0 setget agn_safe_set
 export(int) var loading = 0 setget loading_set
 export(int) var loading_max = 0
 
@@ -20,6 +21,7 @@ signal load_npc
 # label format
 var scorelabel = " score: %06d"
 var agentlabel = " current agent number: %04d"
+var agentsafelabel = " safe agent number: %04d"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -99,6 +101,13 @@ func agn_set(value):
 		$AgentCounter.text = "current agent number over 10000"
 	else:
 		$AgentCounter.text = agentlabel %agent_n
+
+func agn_safe_set(value):
+	agent_safe_n = value
+	if(value > 9999):
+		$AgentCounter/SafeCounter.text = "safe agent number over 10000"
+	else:
+		$AgentCounter/SafeCounter.text = agentsafelabel %agent_safe_n
 
 func loading_set(value):
 	if(value == loading_max):
