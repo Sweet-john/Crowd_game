@@ -61,6 +61,10 @@ func _ready():
 	#poly.set_polygon(Geometry.clip_polygons_2d($fullMap.polygon, $StaticBody2D.get_child(0).polygon)[0])
 	#poly.set_polygon(getFreeArea())
 	#add_child(poly)
+	#getFreeArea()
+	print($StaticBody2D.get_child_count())
+	mergePolygons()
+	print($StaticBody2D.get_child_count())
 	getFreeArea()
 	pass
 
@@ -70,16 +74,111 @@ func _process(delta):
 	pass
 
 func getFreeArea():
+#	var freeMap = $fullMap.polygon
+#	#print(freeMap)
+#	#print($StaticBody2D.get_child_count())
+#	var np = NavigationPolygon.new()
+#	var inner_holes = []
+#	for i in $StaticBody2D.get_children():
+#		freeMap = Geometry.clip_polygons_2d(freeMap, i.polygon)
+#		if len(freeMap) != 1:
+#			inner_holes.append(freeMap[1])
+#
+#		freeMap = freeMap[0]
+#
+#	#print(freeMap)
+#	#print(inner_holes[0])
+#
+#	np.add_outline(freeMap)
+#	for poly in inner_holes:
+#		print(poly)
+#		np.add_outline(poly)
+#	np.make_polygons_from_outlines()
+#	var npi = NavigationPolygonInstance.new()
+#	npi.navpoly = np
+#	$Navigation2D.add_child(npi)
+#
+#	print(inner_holes)
+#	#print(freeMap)
+#	return freeMap
+	
 	var freeMap = $fullMap.polygon
 	#print(freeMap)
 	#print($StaticBody2D.get_child_count())
 	var np = NavigationPolygon.new()
 	var inner_holes = []
-	for i in $StaticBody2D.get_children():
+	for i in $StaticBody2D2.get_children():
 		freeMap = Geometry.clip_polygons_2d(freeMap, i.polygon)
 		if len(freeMap) != 1:
 			inner_holes.append(freeMap[1])
+
 		freeMap = freeMap[0]
+	
+	#print(freeMap)
+	#print(inner_holes[0])
+	
+	np.add_outline(freeMap)
+	for poly in inner_holes:
+		#print(poly)
+		np.add_outline(poly)
+	np.make_polygons_from_outlines()
+	var npi = NavigationPolygonInstance.new()
+	npi.navpoly = np
+	$Navigation2D.add_child(npi)
+	
 	#print(inner_holes)
 	#print(freeMap)
 	return freeMap
+
+
+func mergePolygons():
+	var polygons_to_remove:Array
+	while(true):
+		polygons_to_remove = []
+		var child_num = $StaticBody2D.get_child_count()
+		for child_index in range(child_num):
+			
+			if child_index == child_num - 1:
+				break
+			
+			var child = $StaticBody2D.get_child(child_index)
+			child.set_build_mode(1)
+			#print(child)
+			var found_polygon:CollisionPolygon2D = child as CollisionPolygon2D
+			if found_polygon == null or found_polygon.is_queued_for_deletion():
+				continue
+
+			if found_polygon.transform != Transform2D.IDENTITY:
+				var transformed_polygon = found_polygon.transform.xform(found_polygon.polygon)
+				found_polygon.transform = Transform2D.IDENTITY
+				found_polygon.polygon = transformed_polygon
+
+			for child_subindex in range(child_index+1, child_num):
+				var other_child = $StaticBody2D.get_child(child_subindex)
+				other_child.set_build_mode(1)
+				var other_found_polygon:CollisionPolygon2D = other_child as CollisionPolygon2D
+				if other_found_polygon == null or other_found_polygon.is_queued_for_deletion():
+					continue
+				if other_found_polygon.transform != Transform2D.IDENTITY:
+					var other_transformed_polygon = other_found_polygon.transform.xform(other_found_polygon.polygon)
+					other_found_polygon.transform = Transform2D.IDENTITY
+					other_found_polygon.polygon = other_transformed_polygon
+				
+				var merged_polygon = Geometry.merge_polygons_2d(found_polygon.polygon, other_found_polygon.polygon)
+				if merged_polygon.size() != 1:
+					#print(merged_polygon)
+					continue
+				else:
+					other_found_polygon.polygon = merged_polygon[0]
+					polygons_to_remove.append(found_polygon)
+					break
+
+		if polygons_to_remove.size() == 0:
+			print("Done merging polygons!")
+			break
+
+		for polygon_to_remove in polygons_to_remove:
+			#print(polygon_to_remove)
+			polygon_to_remove.free()
+	
+	#print($StaticBody2D.get_children())
