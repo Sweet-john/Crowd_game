@@ -8,6 +8,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#$Camera2D.hide()
+	#$WorldMap.hide()
 	pass # Replace with function body.
 
 

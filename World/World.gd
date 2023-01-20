@@ -62,15 +62,24 @@ func _ready():
 	#poly.set_polygon(getFreeArea())
 	#add_child(poly)
 	#getFreeArea()
-	print($StaticBody2D.get_child_count())
-	mergePolygons()
-	print($StaticBody2D.get_child_count())
-	getFreeArea()
+#	print($StaticBody2D.get_child_count())
+#	mergePolygons()
+#	print($StaticBody2D.get_child_count())
+#	getFreeArea()
+	
+	yield(get_tree(), "idle_frame")
+	#var path = $Navigation2D.get_simple_path(Vector2(randi() % (3968 + 17664) - 3968, randi() % (4544 + 10496) - 4544), Vector2(randi() % (3968 + 17664) - 3968, randi() % (4544 + 10496) - 4544))
+	#var path = $Navigation2D.get_simple_path($Position2D.position, $Position2D2.position)
+	#print($Position2D.position, $Position2D2.position)
+	#$Line2D.points = path
+	#$Line2D.show_on_top
+	#print(path)
 	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
 	pass
 
 func getFreeArea():
@@ -182,3 +191,4 @@ func mergePolygons():
 			polygon_to_remove.free()
 	
 	#print($StaticBody2D.get_children())
+
