@@ -2665,10 +2665,11 @@ polygon = PoolVector2Array( 12416, 5504, 12416, 7104, 14016, 7104, 14016, 5504 )
 position = Vector2( -15040, 3328 )
 polygon = PoolVector2Array( 12416, 5504, 12416, 7104, 14016, 7104, 14016, 5504 )
 
-[node name="Navigation2D" type="Navigation2D" parent="."]
+[node name="Navi" type="Navigation2D" parent="."]
+unique_name_in_owner = true
 visible = false
 
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navi"]
 navpoly = SubResource( 11 )
 
 [node name="EXIT" type="CanvasLayer" parent="."]

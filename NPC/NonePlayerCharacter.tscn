@@ -4,7 +4,7 @@
 [ext_resource path="res://NPC/NonePlayerCharacter.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=26]
-radius = 13.3333
+radius = 13.0
 
 [sub_resource type="Animation" id=1]
 resource_name = "IdleDown"
@@ -249,11 +249,8 @@ parameters/playback = SubResource( 17 )
 parameters/Idle/blend_position = Vector2( 0.307843, -0.125806 )
 parameters/Run/blend_position = Vector2( 0.27451, 0.248387 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 13.0
 
-[node name="startEvacuation" type="Timer" parent="."]
-wait_time = 1.3
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="startEvacuation" to="." method="_on_startEvacuation_timeout"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]
