@@ -9,7 +9,7 @@ enum{
 	MOVE,
 	ATTACK
 }
-
+var rid
 var tpp_pos : = PoolVector2Array()
 var tpa_pos : = PoolVector2Array()
 
@@ -18,6 +18,7 @@ onready var animation_State = animation_tree.get("parameters/playback")
 
 func _ready():
 	animation_tree.active = true
+	rid = $NavigationObstacle2D.set_navigation(get_node("/root/Level/WorldMap/Navi"))
 	for i in get_node("/root/Level/WorldMap/TP/tpp").get_children():
 		tpp_pos.push_back(i.position)
 	for i in get_node("/root/Level/WorldMap/TP/tpa").get_children():

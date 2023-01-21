@@ -6,12 +6,12 @@ var max_speed = 200
 #var targetLocation = Vector2(randi() % (3968 + 17664) - 3968, randi() % (4544 + 10496) - 4544)
 var targetLocation
 var safe_zoon_pos : = PoolVector2Array()
-
+var rid
 onready var nav = $NavigationAgent2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	nav.set_navigation(get_node("/root/Level/WorldMap/Navi"))
+	rid = nav.set_navigation(get_node("/root/Level/WorldMap/Navi"))
 	
 	for i in get_node("/root/Level/WorldMap/EXIT").get_children():
 		safe_zoon_pos.push_back(i.position)
@@ -19,8 +19,9 @@ func _ready():
 	randomize()
 	targetLocation = safe_zoon_pos[randi()%safe_zoon_pos.size()-1]
 	$NavigationAgent2D.set_target_location(targetLocation)
-	yield(get_tree(), "idle_frame")
-	
+
+func _process(delta):
+	move_and_slide(new_velocity)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -29,8 +30,6 @@ func _physics_process(delta):
 	var dir = (next_target-position).normalized()
 	velocity = max_speed * dir
 	nav.set_velocity(velocity)
-	
-	move_and_slide(new_velocity)
 	
 	var player_position = get_node("/root/Level/MainCharacter").position
 	if position.distance_to(player_position) < 192:

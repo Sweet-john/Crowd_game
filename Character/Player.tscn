@@ -524,3 +524,5 @@ parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]

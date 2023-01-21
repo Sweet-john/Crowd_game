@@ -250,7 +250,12 @@ parameters/Idle/blend_position = Vector2( 0.307843, -0.125806 )
 parameters/Run/blend_position = Vector2( 0.27451, 0.248387 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 100.0
+target_desired_distance = 100.0
 avoidance_enabled = true
 radius = 13.0
+neighbor_dist = 200.0
+max_neighbors = 5
+time_horizon = 10.0
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]
