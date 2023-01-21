@@ -5,6 +5,7 @@ var velocity = Vector2.ZERO
 const MAX_SPEED = 280
 const ACCELERATION = 650
 const FRICTION = 650
+var movable = 0
 enum{
 	MOVE,
 	ATTACK
@@ -48,7 +49,7 @@ func move_state(delta):
 		animation_tree.set("parameters/Run/blend_position", input_vector)
 		animation_tree.set("parameters/Attack/blend_position", input_vector)
 		animation_State.travel("Run")
-		velocity = input_vector * MAX_SPEED
+		velocity = input_vector * MAX_SPEED * movable
 		#velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
 		animation_State.travel("Idle")
@@ -66,3 +67,8 @@ func attack_state(delta):
 	
 func attack_animation_finished():
 	state = MOVE
+
+
+func _on_HUD_loading_end():
+	movable = 1
+	

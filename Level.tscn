@@ -6,8 +6,10 @@
 [ext_resource path="res://Character/Player.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Node"]
+pause_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+pause_mode = 2
 scale = Vector2( 1.5, 1.5 )
 current = true
 limit_left = -5120
@@ -17,14 +19,20 @@ limit_bottom = 14016
 limit_smoothed = true
 
 [node name="HUD" parent="Camera2D" instance=ExtResource( 2 )]
+pause_mode = 2
 
 [node name="WorldMap" parent="." instance=ExtResource( 4 )]
+pause_mode = 2
 
 [node name="NPCNode" type="Node" parent="."]
+pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="MainCharacter" parent="." instance=ExtResource( 5 )]
 collision_mask = 3
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="MainCharacter"]
+pause_mode = 2
 remote_path = NodePath("../../Camera2D")
+
+[connection signal="loading_end" from="Camera2D/HUD" to="MainCharacter" method="_on_HUD_loading_end"]

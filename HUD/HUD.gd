@@ -17,11 +17,13 @@ export(int) var loading_max = 0
 # signal settings
 signal on_loading_100
 signal load_npc
+signal loading_end
 
 # label format
 var scorelabel = " score: %06d"
 var agentlabel = " current agent number: %04d"
 var agentsafelabel = " safe agent number: %04d"
+var bbtextlabel = "[shake rate=4 level=24][center]%s[/center][/shake]"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,9 +56,31 @@ func state_start():
 	self.score = 0
 	self.agent_n = 0
 	$LoadingScreen/LoadingBG.visible = false
-	get_tree().paused = false
 	loading_screen.hide()
 	gaming_hud.show()
+	get_tree().paused = false
+	prepare_timer()
+
+func prepare_timer():
+	$GamingHud/Message.show()
+	$GamingHud/Message.bbcode_text = bbtextlabel %"Prepare for hunting"
+	yield(get_tree().create_timer(5), "timeout")
+	$GamingHud/Message.bbcode_text = bbtextlabel %"5"
+	yield(get_tree().create_timer(1), "timeout")
+	$GamingHud/Message.bbcode_text = bbtextlabel %"4"
+	yield(get_tree().create_timer(1), "timeout")
+	$GamingHud/Message.bbcode_text = bbtextlabel %"3"
+	yield(get_tree().create_timer(1), "timeout")
+	$GamingHud/Message.bbcode_text = bbtextlabel %"2"
+	yield(get_tree().create_timer(1), "timeout")
+	$GamingHud/Message.bbcode_text = bbtextlabel %"1"
+	yield(get_tree().create_timer(1), "timeout")
+	emit_signal("loading_end")
+	$GamingHud/Message.bbcode_text = bbtextlabel %"let's start hunting"
+	yield(get_tree().create_timer(3), "timeout")
+	$GamingHud/Message.bbcode_text = bbtextlabel %"don't let them leave"
+	yield(get_tree().create_timer(3), "timeout")
+	$GamingHud/Message.hide()
 
 func state_pause():
 	get_tree().paused = true

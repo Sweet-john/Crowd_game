@@ -14,7 +14,6 @@ var generateNPC = true
 func _ready():
 	randomize()
 	get_node("/root/Level/Camera2D/HUD").agent_n = 0
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
