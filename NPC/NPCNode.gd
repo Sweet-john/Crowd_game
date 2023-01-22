@@ -4,7 +4,7 @@ extends Node
 var maxNpcNum = 5000
 var npcIncreasePerFrame = 10
 var npcCounter = 0
-var generateNPC = false
+var generateNPC = true
 #onready var generateRandomPoints = get_node("../WorldMap").inPolygonRandomPointGenerator.new(get_node("../WorldMap").getFreeArea())
 
 # Called when the node enters the scene tree for the first time.
@@ -16,11 +16,7 @@ func _ready():
 func _physics_process(delta):
 	if generateNPC:
 		if npcCounter < maxNpcNum:
-			$NPC_Generator.generate_zombie()
+			get_node("/root/Level/NPC_Generator").generate_zombie()
 			npcCounter += 1
 		else:
 			generateNPC = false
-
-
-func _on_HUD_load_npc():
-	generateNPC = true

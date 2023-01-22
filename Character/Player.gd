@@ -5,7 +5,7 @@ var velocity = Vector2.ZERO
 const MAX_SPEED = 280
 const ACCELERATION = 650
 const FRICTION = 650
-var movable = 0
+var movable = 1
 enum{
 	MOVE,
 	ATTACK
