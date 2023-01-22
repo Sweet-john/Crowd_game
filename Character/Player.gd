@@ -68,7 +68,5 @@ func attack_state(delta):
 func attack_animation_finished():
 	state = MOVE
 
-
 func _on_HUD_loading_end():
 	movable = 1
-	

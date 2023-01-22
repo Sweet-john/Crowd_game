@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "NPC_Generator",
+"language": "GDScript",
+"path": "res://NPC/NaviNPC/NPC_Generator.gd"
+}, {
+"base": "Reference",
+"class": "Zombie",
+"language": "GDScript",
+"path": "res://NPC/NaviNPC/Zombie.gd"
+} ]
+_global_script_class_icons={
+"NPC_Generator": "",
+"Zombie": ""
+}
+
 [application]
 
 config/name="Crowd Game"

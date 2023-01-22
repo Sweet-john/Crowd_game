@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://NPC/NaviNPC/NPC_Generator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://NPC/NPCNode.gd" type="Script" id=3]
 [ext_resource path="res://World/World.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Character/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [node name="Level" type="Node"]
 pause_mode = 2
@@ -28,6 +30,9 @@ pause_mode = 2
 pause_mode = 2
 script = ExtResource( 3 )
 
+[node name="NPC_Generator" parent="NPCNode" instance=ExtResource( 1 )]
+zombie_image = ExtResource( 6 )
+
 [node name="MainCharacter" parent="." instance=ExtResource( 5 )]
 collision_mask = 3
 
@@ -35,4 +40,5 @@ collision_mask = 3
 pause_mode = 2
 remote_path = NodePath("../../Camera2D")
 
+[connection signal="load_npc" from="Camera2D/HUD" to="NPCNode" method="_on_HUD_load_npc"]
 [connection signal="loading_end" from="Camera2D/HUD" to="MainCharacter" method="_on_HUD_loading_end"]
