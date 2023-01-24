@@ -25,7 +25,7 @@ pause_mode = 2
 pause_mode = 2
 
 [node name="NPCNode" type="Node" parent="."]
-pause_mode = 2
+pause_mode = 1
 script = ExtResource( 3 )
 
 [node name="MainCharacter" parent="." instance=ExtResource( 5 )]

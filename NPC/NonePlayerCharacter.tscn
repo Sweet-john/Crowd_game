@@ -4,7 +4,7 @@
 [ext_resource path="res://NPC/NonePlayerCharacter.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=26]
-radius = 13.3333
+radius = 5.0
 
 [sub_resource type="Animation" id=1]
 resource_name = "IdleDown"
@@ -219,7 +219,7 @@ start_node = "Idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
 [node name="NonePlayerCharacter" type="KinematicBody2D"]
-pause_mode = 2
+pause_mode = 1
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 

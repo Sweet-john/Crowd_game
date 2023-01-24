@@ -27,7 +27,7 @@ var agentlabel = " current zombie number: %04d"
 var agentsafelabel = " safe zombie number: %04d"
 var bbtextlabel = "[shake rate=4 level=24][center]%s[/center][/shake]"
 var huntlabel = "[shake rate=4 level=24][center]You have Hunted: %d [/center][/shake]"
-var safelabel = "[shake rate=4 level=24][center]%d zombies have escaped[/center][/shake]"
+var safelabel = "[shake rate=4 level=24][center]zombies have escaped: %d[/center][/shake]"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -118,19 +118,20 @@ func state_title():
 	game_end_screen.hide()
 	$LoadingScreen/LoadingBG.visible = false
 	$PauseMenu/PauseBG.visible = false
-	$GameEndScreen/EndBG.visible = false
 
 func state_end():
 	get_tree().paused = true
-	$GameEndScreen/EndBG.visible = true
 	gaming_hud.hide()
 	game_end_screen.show()
+	$GameEndScreen/PauseBG.visible = true
 	$GameEndScreen/ExitButton.hide()
 	$GameEndScreen/Hunted.bbcode_text = huntlabel % score
 	yield(get_tree().create_timer(1), "timeout")
-	$GameEndScreen/Hunted/Safe.bbcode_text = safelabel % agent_safe_n
+	$GameEndScreen/Safe.bbcode_text = safelabel % agent_safe_n
 	yield(get_tree().create_timer(1), "timeout")
 	$GameEndScreen/ExitButton.show()
+	for i in get_node("/root/Level/NPCNode").get_children():
+		i.free()
 
 # setter & getter
 func score_set(value):
@@ -146,7 +147,7 @@ func agn_set(value):
 		$AgentCounter.text = "current zombie number over 10000"
 	else:
 		$AgentCounter.text = agentlabel %value
-	if agent_n == 1 && value == 0:
+	if agent_n > 100 && value <= 100:
 		emit_signal("game_end")
 		return
 	agent_n = value
@@ -155,6 +156,8 @@ func agn_safe_set(value):
 	agent_safe_n = value
 	if(value > 9999):
 		$AgentCounter/SafeCounter.text = "safe zombie number over 10000"
+	elif(value < 0):
+		$AgentCounter/SafeCounter.text = agentsafelabel %0
 	else:
 		$AgentCounter/SafeCounter.text = agentsafelabel %agent_safe_n
 

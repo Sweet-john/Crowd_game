@@ -174,39 +174,38 @@ margin_top = -18.0
 
 [node name="GameEndScreen" type="CanvasLayer" parent="."]
 
+[node name="PauseBG" type="ColorRect" parent="GameEndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.733333, 0.733333, 0.733333, 0.501961 )
+
 [node name="Hunted" type="RichTextLabel" parent="GameEndScreen"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
+margin_left = -820.0
 margin_top = -110.0
-margin_right = 20.0
+margin_right = 820.0
 theme = SubResource( 12 )
 bbcode_enabled = true
 fit_content_height = true
 scroll_active = false
 deselect_on_focus_loss_enabled = false
 
-[node name="Safe" type="RichTextLabel" parent="GameEndScreen/Hunted"]
+[node name="Safe" type="RichTextLabel" parent="GameEndScreen"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = 55.0
-margin_right = 20.0
-margin_bottom = 165.0
+margin_left = -1020.0
+margin_right = 1020.0
+margin_bottom = 110.0
 theme = SubResource( 12 )
 bbcode_enabled = true
 fit_content_height = true
 scroll_active = false
 deselect_on_focus_loss_enabled = false
-
-[node name="EndBG" type="ColorRect" parent="GameEndScreen"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.180392, 0.164706, 0.164706, 1 )
 
 [node name="ExitButton" type="Button" parent="GameEndScreen"]
 anchor_left = 0.5
@@ -214,9 +213,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -180.5
-margin_top = 177.5
+margin_top = 301.0
 margin_right = 180.5
-margin_bottom = 262.5
+margin_bottom = 386.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 10 )
 text = " Exit"

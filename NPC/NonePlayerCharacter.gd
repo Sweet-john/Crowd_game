@@ -15,13 +15,13 @@ var player_position: Vector2
 var collision: KinematicCollision2D
 var isNpcGone = false
 var eliminateDistance = 100
-
+ 
 var safe_zoon_pos : = PoolVector2Array()
-
+ 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-
+ 
 	for i in get_node("/root/Level/WorldMap/StaticBody2D").get_children():
 		if Geometry.is_point_in_polygon(position,i.polygon):
 			queue_free()
@@ -37,6 +37,13 @@ func _ready():
 		else:
 			continue
 	
+	if nerestDistance <= eliminateDistance:
+		queue_free()
+	
+	player_position = get_node("/root/Level/MainCharacter").position
+	if position.distance_to(player_position) < eliminateDistance:
+		queue_free()
+	
 	if isNpcGone == false:
 		yield(get_tree(), "idle_frame")
 		path = get_node("/root/Level/WorldMap/Navigation2D").get_simple_path(position, targetLocation)
@@ -51,23 +58,25 @@ func _ready():
 			
 			next_target = path[0]
 			path.remove(0)
-			$startEvacuation.wait_time = randf()*(nerestDistance/100)+5.0
-			$Timer.wait_time = randf()*1.0+0.1
+			#$startEvacuation.wait_time = randf()*(nerestDistance/1000)+12.0
+			$startEvacuation.wait_time = (nerestDistance/1000)+10.0
+			#$Timer.wait_time = randf()*1.0+0.1
 			$startEvacuation.start()
 	
-
+ 
 func _process(delta):
 	collision = move_and_collide(velocity * delta)
-
-
+ 
 func _physics_process(delta):
 	if ifEvacuation:
 		if collision:
 			velocity = Vector2(0,0)
 			hit_flag = true
 			hitCount += 1
+			#$Timer.wait_time = randf()*(position.distance_to(targetLocation)/1000)+0.5
+			$Timer.wait_time = (position.distance_to(targetLocation)/10000)
 			$Timer.start()
-
+ 
 		if position.distance_to(targetLocation) < targetRadius:
 			get_node("/root/Level/Camera2D/HUD").agent_n -= 1
 			get_node("/root/Level/Camera2D/HUD").agent_safe_n += 1
@@ -105,19 +114,17 @@ func _physics_process(delta):
 				velocity = path[0] - position
 				velocity = (velocity.normalized()) * speed
 				path.remove(0)
-
+ 
 	player_position = get_node("/root/Level/MainCharacter").position
 	if position.distance_to(player_position) < eliminateDistance:
 		get_node("/root/Level/Camera2D/HUD").score += 1
 		get_node("/root/Level/Camera2D/HUD").agent_n -= 1
 		queue_free()
-
-
-func _exit_tree():
-	#get_node("/root/Level/Camera2D/HUD").agent_n -= 1
-	pass
-
-
+ 
+#func _exit_tree():
+#	get_node("/root/Level/Camera2D/HUD").agent_n -= 1
+#	pass
+ 
 func _on_Timer_timeout():
 	if position.distance_to(next_target) < 100:
 		if path.size() != 0:
@@ -136,8 +143,8 @@ func _on_Timer_timeout():
 		velocity = (velocity.normalized()) * speed
 		hit_flag = false
 		$Timer.stop()
-
-
+ 
 func _on_startEvacuation_timeout():
 	ifEvacuation = true
 	$startEvacuation.stop()
+ 
