@@ -7,7 +7,7 @@ var next_target: Vector2
 var ifEvacuation = false
 #var targetLocation = Vector2(randi() % (3968 + 17664) - 3968, randi() % (4544 + 10496) - 4544)
 var targetLocation: Vector2
-onready var speed = 200
+onready var speed = 130
 onready var hitCount = 0
 var hitCountThreshole = 50
 var targetRadius = 500
@@ -47,7 +47,7 @@ func _ready():
 	if isNpcGone == false:
 		yield(get_tree(), "idle_frame")
 		path = get_node("/root/Level/WorldMap/Navigation2D").get_simple_path(position, targetLocation)
-		
+		path = get_node("/root/Level/WorldMap/Navigation2D").
 		if path.size() == 0:
 			queue_free()
 		else:

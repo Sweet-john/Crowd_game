@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var state = MOVE
 var velocity = Vector2.ZERO
-const MAX_SPEED = 280
+const MAX_SPEED = 350
 const ACCELERATION = 650
 const FRICTION = 650
 var movable = 0
