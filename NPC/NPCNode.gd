@@ -3,7 +3,7 @@ extends Node
 var NPCScene = preload("res://NPC/NonePlayerCharacter.tscn")
 #var NPCInstance = NPCScene.instance()
 var maxNpcNum = 5000
-var npcIncreasePerFrame = 50
+var npcIncreasePerFrame = 100
 var npcCounter = 0
 var freeLocation: Vector2
 var targetLocation: Vector2

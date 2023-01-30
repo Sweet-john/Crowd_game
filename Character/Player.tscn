@@ -488,6 +488,8 @@ start_node = "Idle"
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Soldier" type="Sprite" parent="."]
