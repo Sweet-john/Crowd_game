@@ -8,9 +8,9 @@ func _ready():
 
 func _on_HUD_load_npc():
 	var npcCounter = 0
-	var generatePerFrame = 50
+	var generatePerFrame = 65
 	var generateFrame = 100
 	for i in range(generateFrame):
 		for j in range(generatePerFrame):
 			get_node("NPC_Generator").generate_zombie()
-		yield(get_tree().create_timer(0.1), "timeout")
+		yield(get_tree().create_timer(0.01), "timeout")
