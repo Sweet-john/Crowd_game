@@ -1,4 +1,4 @@
-# Crowd Simulation
+# Crowd Simulation (INFOMCRWS 2022)
 
 [Crowd Simulation](https://www.cs.uu.nl/docs/vakken/mcrws/) is a course given by [Roland Geraerts](https://www.uu.nl/staff/RJGeraerts) of Utrecht University.
 
